@@ -1,0 +1,15 @@
+{
+  "name": "shopeo/woocommerce-eshop-payments",
+  "autoload": {
+    "psr-4": {
+      "Shopeo\\WoocommerceEshopPayments\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "shopeo",
+      "email": "hello@shopeo.cn"
+    }
+  ],
+  "require": {}
+}
