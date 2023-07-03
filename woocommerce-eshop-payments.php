@@ -146,7 +146,15 @@ if ( ! function_exists( 'woocommerce_gateway_eshop_init' ) ) {
 					error_log( print_r( $response['body'], true ) );
 					$res = json_decode( $response['body'] );
 					if ( $res->code === 200 ) {
-						error_log( $res->data );
+						$transaction = $res->data;
+						error_log( print_r( $transaction, true ) );
+						$order->set_transaction_id( $transaction->transaction_id );
+						$woocommerce->cart->empty_cart();
+
+						return array(
+							'result'   => 'success',
+							'redirect' => $transaction->checkout_url
+						);
 					}
 				}
 

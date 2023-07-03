@@ -29,23 +29,28 @@ class EshopApi {
 
 	public function signature( $timestamp, $nonce_str = 'wc_gateway_eshop' ) {
 		$originString = $this->app_id . '&' . $timestamp . '&' . $nonce_str . '&' . $this->app_secret;
+		error_log( $originString );
 
-		return strtoupper( md5( $originString ) );
+		$sign = strtolower( md5( $originString ) );
+		error_log( $sign );
+
+		return $sign;
 	}
 
 	public function makeOrder( $data ) {
 		$url       = $this->point . '/api/omipay/order/create';
-		$timestamp = $this::getMillisecond();
+		$timestamp = time();
 		$nonce_str = 'wc_gateway_eshop';
 		$sign      = $this->signature( $timestamp, $nonce_str );
 		$body      = json_encode( $data );
 		error_log( $body );
 		$response = wp_remote_post( $url, array(
 			'headers' => array(
-				'appId'     => $this->app_id,
-				'nonceStr'  => $nonce_str,
-				'sign'      => $sign,
-				'timestamp' => $timestamp
+				'content-type' => 'application/json',
+				'appId'        => $this->app_id,
+				'nonceStr'     => $nonce_str,
+				'sign'         => $sign,
+				'timestamp'    => $timestamp
 			),
 			'body'    => $body
 		) );
