@@ -165,9 +165,10 @@ if ( ! function_exists( 'woocommerce_gateway_eshop_init' ) ) {
 					$params = file_get_contents( "php://input" );
 					error_log( print_r( $params, true ) );
 					$response  = json_decode( $params );
-					$sign      = '';
-					$timestamp = '';
-					$nonce_str = '';
+					$data      = $response->data;
+					$sign      = $data->sign;
+					$timestamp = $data->timestamp;
+					$nonce_str = $data->nonce_str;
 					$eshopApi  = new EshopApi( $this->app_id, $this->app_secret );
 					$sign1     = $eshopApi->signature( $timestamp, $nonce_str );
 					if ( $sign == $sign1 ) {
