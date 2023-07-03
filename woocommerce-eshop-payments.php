@@ -148,6 +148,7 @@ if ( ! function_exists( 'woocommerce_gateway_eshop_init' ) ) {
 					if ( $res->code === 200 ) {
 						$transaction = $res->data;
 						error_log( print_r( $transaction, true ) );
+						$order->update_status( 'on-hold', __( 'Awaiting payment', 'woocommerce-eshop-payments' ) );
 						$order->set_transaction_id( $transaction->transaction_id );
 						$woocommerce->cart->empty_cart();
 
