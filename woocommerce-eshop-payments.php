@@ -3,7 +3,7 @@
  * Plugin Name: WooCommerce Eshop Payments
  * Plugin URI:  https://woocommerce.com/products/woocommerce-eshop-payments/
  * Description: eshop complete payments processing solution.
- * Version:     1.9.2
+ * Version:     0.0.1
  * Author:      SHOPEO
  * Author URI:  https://www.shopeo.cn/
  * License:     GPL-2.0
