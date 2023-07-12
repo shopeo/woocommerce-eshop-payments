@@ -13,10 +13,9 @@
  * Text Domain: woocommerce-eshop-payments
  *
  */
+require_once 'vendor/autoload.php';
 
 use Shopeo\WoocommerceEshopPayments\EshopApi;
-
-require_once 'vendor/autoload.php';
 
 
 if ( ! defined( 'ABSPATH' ) ) {
