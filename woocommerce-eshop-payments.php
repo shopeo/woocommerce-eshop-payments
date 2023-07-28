@@ -5,7 +5,7 @@
  * Description: eshop complete payments processing solution.
  * Version:     0.0.1
  * Author:      SHOPEO
- * Author URI:  https://www.shopeo.cn/
+ * Author URI:  https://shopeo.cn/
  * License:     GPL-2.0
  * Requires PHP: 7.1
  * WC requires at least: 3.9

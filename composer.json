@@ -5,6 +5,7 @@
       "Shopeo\\WoocommerceEshopPayments\\": "src/"
     }
   },
+  "homepage": "https://shopeo.cn",
   "authors": [
     {
       "name": "shopeo",
