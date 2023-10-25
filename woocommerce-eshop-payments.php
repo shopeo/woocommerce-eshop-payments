@@ -149,6 +149,7 @@ if ( ! function_exists( 'woocommerce_gateway_eshop_init' ) ) {
 						error_log( print_r( $transaction, true ) );
 						$order->update_status( 'on-hold', __( 'Awaiting payment', 'woocommerce-eshop-payments' ) );
 						$order->set_transaction_id( $transaction->transaction_id );
+						$order->save();
 						$woocommerce->cart->empty_cart();
 
 						return array(
